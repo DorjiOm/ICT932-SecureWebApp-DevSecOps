@@ -1,0 +1,22 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<h2>Set Up Two-Factor Authentication</h2>
+<p>Scan this QR code with <strong>Google Authenticator</strong> app on your phone.</p>
+
+<img src="data:image/png;base64,{{ qr_code }}" alt="QR Code" style="width:200px; height:200px;">
+
+<p>After scanning, enter the 6-digit code from the app to confirm:</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="token" placeholder="Enter 6-digit code" maxlength="6" required>
+    <button type="submit">Confirm & Enable 2FA</button>
+</form>
+
+{% if messages %}
+    {% for message in messages %}
+        <p class="{{ message.tags }}">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+{% endblock %}

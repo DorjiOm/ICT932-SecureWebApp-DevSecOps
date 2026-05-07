@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 50px auto; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #007bff; color: white; }
+        tr:nth-child(even) { background: #f2f2f2; }
+        .high { color: red; font-weight: bold; }
+        .medium { color: orange; font-weight: bold; }
+        .low { color: green; font-weight: bold; }
+        nav { margin-bottom: 20px; }
+        nav a { margin-right: 15px; }
+        .badge { padding: 3px 8px; border-radius: 10px; font-size: 12px; }
+        .done { background: #d4edda; color: #155724; }
+        .pending { background: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <nav>
+        <strong>Secure Task Manager — Admin</strong>
+        <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+
+    <h2>Admin Dashboard</h2>
+    <p>Welcome, {{ request.user.username }}! You have admin access.</p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <h3>All Users ({{ all_users.count }})</h3>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Date Joined</th>
+        </tr>
+        {% for user in all_users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.profile.role|upper }}</td>
+            <td>{{ user.date_joined|date:"d M Y" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>All Tasks ({{ all_tasks.count }})</h3>
+    <table>
+        <tr>
+            <th>User</th>
+            <th>Title</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Created</th>
+        </tr>
+        {% for task in all_tasks %}
+        <tr>
+            <td>{{ task.user.username }}</td>
+            <td>{{ task.title }}</td>
+            <td class="{{ task.priority }}">{{ task.priority|upper }}</td>
+            <td>
+                {% if task.completed %}
+                    <span class="badge done">Done</span>
+                {% else %}
+                    <span class="badge pending">Pending</span>
+                {% endif %}
+            </td>
+            <td>{{ task.created_at|date:"d M Y" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

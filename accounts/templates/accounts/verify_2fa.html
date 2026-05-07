@@ -1,0 +1,20 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<h2>Two-Factor Authentication</h2>
+<p>Open <strong>Google Authenticator</strong> and enter the 6-digit code for this account.</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="token" placeholder="Enter 6-digit code" maxlength="6" required autofocus>
+    <button type="submit">Verify</button>
+</form>
+
+{% if messages %}
+    {% for message in messages %}
+        <p class="{{ message.tags }}">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<p><a href="{% url 'logout' %}">Cancel and logout</a></p>
+{% endblock %}
