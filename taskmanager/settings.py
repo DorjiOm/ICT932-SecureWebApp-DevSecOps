@@ -74,15 +74,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
-
 STATIC_URL = 'static/'
 
 # 2FA Settings
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/tasks/'
+
+# Security Headers
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
