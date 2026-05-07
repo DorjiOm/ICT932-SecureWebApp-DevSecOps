@@ -1,0 +1,2 @@
+[2026-05-07 22:37:00,479] SECURITY WARNING: Failed login attempt: newuser from IP 127.0.0.1 - 1 attempts
+[2026-05-07 22:37:06,455] SECURITY INFO: Successful login: newuser from IP 127.0.0.1
