@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Task</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 50px auto; padding: 20px; }
+        input, textarea, select { width: 100%; padding: 8px; margin: 8px 0; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .error { color: red; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h2>Create New Task</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="error">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>Title</label>
+        <input type="text" name="title" required minlength="3" maxlength="200" value="{{ title }}">
+
+        <label>Description</label>
+        <textarea name="description" rows="4" maxlength="1000">{{ description }}</textarea>
+
+        <label>Priority</label>
+        <select name="priority">
+            <option value="low" {% if priority == 'low' %}selected{% endif %}>Low</option>
+            <option value="medium" {% if priority == 'medium' %}selected{% endif %}>Medium</option>
+            <option value="high" {% if priority == 'high' %}selected{% endif %}>High</option>
+        </select>
+
+        <button type="submit">Create Task</button>
+    </form>
+    <p><a href="{% url 'task_list' %}">← Back to tasks</a></p>
+</body>
+</html>
