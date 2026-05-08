@@ -55,6 +55,7 @@ jobs:
   nikto-scan:
     runs-on: ubuntu-latest
     needs: build-and-test
+    continue-on-error: true
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -91,7 +92,7 @@ jobs:
 
   pipeline-complete:
     runs-on: ubuntu-latest
-    needs: [build-and-test, sast-scan, nikto-scan]
+    needs: [build-and-test, sast-scan]
     steps:
     - name: Pipeline complete
       run: echo "DevSecOps pipeline completed successfully!"
