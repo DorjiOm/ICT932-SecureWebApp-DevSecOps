@@ -5,12 +5,12 @@ A secure web application built using DevSecOps principles for ICT932 Cybersecuri
 
 ## Team Members
 - Sweta Manandhar (CIHE240378) — Project Lead & DevSecOps Pipeline
-- [Member 2] — Secure Application Developer
-- [Member 3] — Security Testing (SAST/DAST)
-- [Member 4] — Report & Documentation
+- Prasanna Shrestha — Secure App Developer
+- Person 3 — Security Testing (SAST/DAST)
+- Person 4 — Report & Documentation
 
 ## Repository Structure
-- `/src` — Application source code
+- `/src` — Django Task Manager application
 - `/docs` — Project documentation
 - `/tests` — Test files
 - `/ci-cd` — CI/CD pipeline configurations
@@ -20,6 +20,16 @@ A secure web application built using DevSecOps principles for ICT932 Cybersecuri
 - OWASP ZAP (DAST)
 - SonarQube (SAST)
 - Nikto (Web Scanner)
+
+## Current Features
+- Secure login and registration
+- Role-Based Access Control (Admin vs User)
+- Two-Factor Authentication (2FA) with Google Authenticator
+- Task manager features
+- Brute force protection
+- XSS prevention
+- Session timeout
+- Security event logging
 
 ## Setup Instructions
 Coming soon.
