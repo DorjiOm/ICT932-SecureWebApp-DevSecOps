@@ -16,3 +16,13 @@
 [2026-05-07 22:44:42,410] SECURITY WARNING: Account locked: testuser from IP 127.0.0.1 - too many failed attempts
 [2026-05-07 22:44:45,701] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 1 attempts
 [2026-05-07 22:44:52,415] SECURITY INFO: Successful login: testuser from IP 127.0.0.1
+[2026-05-11 19:22:00,753] SECURITY INFO: Successful login: newuser from IP 127.0.0.1
+[2026-05-11 19:22:20,511] SECURITY INFO: 2FA verified for user: newuser
+[2026-05-11 19:25:34,208] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 1 attempts
+[2026-05-11 19:25:35,759] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 2 attempts
+[2026-05-11 19:25:37,766] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 3 attempts
+[2026-05-11 19:25:39,189] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 4 attempts
+[2026-05-11 19:25:40,719] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 5 attempts
+[2026-05-11 19:25:40,725] SECURITY WARNING: Account locked: testuser from IP 127.0.0.1 - too many failed attempts
+[2026-05-11 19:25:45,152] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 1 attempts
+[2026-05-11 19:25:54,841] SECURITY INFO: Successful login: testuser from IP 127.0.0.1

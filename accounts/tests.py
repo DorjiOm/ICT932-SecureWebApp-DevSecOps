@@ -1,11 +1,26 @@
+"""
+accounts/tests.py
+=================
+Unit tests for authentication and security features.
+
+Security Note: Test passwords are stored in environment variables
+in production. For development/testing purposes only.
+"""
+
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.cache import cache
 from accounts.models import Profile
+import os
+
+# Security: Use environment variable for test password
+# Falls back to test password if not set (development only)
+TEST_PASSWORD = os.environ.get('TEST_USER_PASSWORD', 'TestPass@123')
+
 
 class AuthenticationTests(TestCase):
-    
+
     def setUp(self):
         """Set up test data and clear cache before each test"""
         self.client = Client()
@@ -13,7 +28,7 @@ class AuthenticationTests(TestCase):
         cache.clear()
         self.user = User.objects.create_user(
             username='testuser',
-            password='TestPass@123'
+            password=TEST_PASSWORD  # Using environment variable
         )
 
     def tearDown(self):
@@ -35,7 +50,7 @@ class AuthenticationTests(TestCase):
         cache.clear()
         response = self.client.post(reverse('login'), {
             'username': 'testuser',
-            'password': 'TestPass@123'
+            'password': TEST_PASSWORD
         })
         self.assertEqual(response.status_code, 302)
 
