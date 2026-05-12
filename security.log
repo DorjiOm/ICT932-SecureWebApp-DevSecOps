@@ -26,3 +26,29 @@
 [2026-05-11 19:25:40,725] SECURITY WARNING: Account locked: testuser from IP 127.0.0.1 - too many failed attempts
 [2026-05-11 19:25:45,152] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 1 attempts
 [2026-05-11 19:25:54,841] SECURITY INFO: Successful login: testuser from IP 127.0.0.1
+[2026-05-12 08:30:56,299] SECURITY INFO: Successful login: newuser from IP 127.0.0.1
+[2026-05-12 08:34:05,947] SECURITY WARNING: Failed login attempt: newuser24 from IP 127.0.0.1 - 1 attempts
+[2026-05-12 08:35:00,843] SECURITY INFO: New user registered: harry from IP 127.0.0.1
+[2026-05-12 08:35:45,426] SECURITY INFO: 2FA enabled for user: harry
+[2026-05-12 09:15:51,144] SECURITY INFO: Successful login: harry from IP 127.0.0.1
+[2026-05-12 09:16:20,935] SECURITY INFO: 2FA verified for user: harry
+[2026-05-12 09:43:24,335] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 1 attempts
+[2026-05-12 09:43:28,133] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 2 attempts
+[2026-05-12 09:43:30,983] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 3 attempts
+[2026-05-12 09:43:32,447] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 4 attempts
+[2026-05-12 09:43:34,231] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 5 attempts
+[2026-05-12 09:43:34,241] SECURITY WARNING: Account locked: testuser from IP 127.0.0.1 - too many failed attempts
+[2026-05-12 09:43:40,966] SECURITY WARNING: Failed login attempt: testuser from IP 127.0.0.1 - 1 attempts
+[2026-05-12 09:43:54,131] SECURITY INFO: Successful login: testuser from IP 127.0.0.1
+[2026-05-12 11:47:22,413] SECURITY INFO: Successful login: harry from IP 127.0.0.1
+[2026-05-12 11:47:54,474] SECURITY INFO: 2FA verified for user: harry
+[2026-05-12 12:00:20,778] SECURITY INFO: Successful login: newuser from IP 127.0.0.1
+[2026-05-12 12:00:40,168] SECURITY INFO: 2FA verified for user: newuser
+[2026-05-12 12:03:02,072] SECURITY WARNING: Unauthorized admin access attempt by: newuser
+[2026-05-12 12:04:21,890] SECURITY INFO: User logged out: newuser
+[2026-05-12 12:04:30,049] SECURITY INFO: Successful login: admin from IP 127.0.0.1
+[2026-05-12 12:29:31,898] SECURITY INFO: User logged out: 
+[2026-05-12 12:29:35,094] SECURITY INFO: Successful login: admin from IP 127.0.0.1
+[2026-05-12 12:39:27,747] SECURITY INFO: Successful login: user3 from IP 127.0.0.1
+[2026-05-12 12:39:39,001] SECURITY INFO: Successful login: newuser from IP 127.0.0.1
+[2026-05-12 12:40:22,261] SECURITY INFO: 2FA verified for user: newuser
