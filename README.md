@@ -10,8 +10,8 @@ A secure Django-based Task Manager application built using DevSecOps principles 
 |---|---|---|
 | Sweta Manandhar | CIHE240378 | Project Lead & DevSecOps Pipeline |
 | Prasanna Shrestha | — | Secure App Developer |
-| Person 3 | — | Security Testing (SAST/DAST) |
-| Person 4 | — | Report & Documentation |
+| Dorji Om | CIHE240914 | Security Testing (SAST/DAST) |
+| Deepa Gurung | CIHE240485 | Report & Documentation |
 
 ---
 
