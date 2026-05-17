@@ -84,6 +84,15 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/tasks/'
 
 # Security Headers
+
+# Security: Cookie HttpOnly flags - prevents JavaScript cookie access
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = True
+
+# Security: Content Security Policy - fixes OWASP ZAP Medium risk finding
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'",)
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
