@@ -27,19 +27,19 @@ class Profile(models.Model):
     - is_admin() method used throughout app for access control
     """
 
-    ADMIN = 'admin'
-    USER = 'user'
+    ADMIN_ROLE = 'admin'
+    USER_ROLE = 'user'
     ROLE_CHOICES = [
-        (ADMIN, 'Admin'),
-        (USER, 'User'),
-    ]
+        (ADMIN_ROLE, 'Admin'),
+        (USER_ROLE, 'User'),
+        ]
 
     # Security: OneToOne ensures each user has exactly one profile
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     # Security: Default role is 'user' (principle of least privilege)
     # Admin role must be explicitly granted
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default=USER)
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default=USER_ROLE)
 
     def __str__(self):
         return f'{self.user.username} - {self.role}'
@@ -52,7 +52,7 @@ class Profile(models.Model):
         Returns:
             bool: True if user is admin, False otherwise
         """
-        return self.role == self.ADMIN
+        return self.role == self.ADMIN_ROLE
 
 
 # Security: Automatically create Profile when new User is created
