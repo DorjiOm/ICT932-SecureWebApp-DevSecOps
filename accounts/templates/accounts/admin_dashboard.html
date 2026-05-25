@@ -36,6 +36,7 @@
 
     <h3>All Users ({{ all_users.count }})</h3>
     <table>
+        <caption>All registered users</caption>
         <tr>
             <th>Username</th>
             <th>Email</th>
@@ -51,9 +52,11 @@
         </tr>
         {% endfor %}
     </table>
+    
 
     <h3>All Tasks ({{ all_tasks.count }})</h3>
     <table>
+           <caption>All tasks</caption>
         <tr>
             <th>User</th>
             <th>Title</th>
