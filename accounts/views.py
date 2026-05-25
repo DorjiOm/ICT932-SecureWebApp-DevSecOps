@@ -25,7 +25,11 @@ from io import BytesIO
 import base64
 import logging
 from .models import Profile
-
+def _safe_log(value):
+    """Sanitize user-controlled input for logging (prevents CRLF/log injection)."""
+    if value is None:
+        return ''
+    return str(value).replace('\n', '').replace('\r', '').replace('\t', ' ')[:200]
 # Security: Dedicated security logger for audit trail
 # All security events are recorded with timestamp and IP address
 logger = logging.getLogger('security')
@@ -87,14 +91,17 @@ def login_view(request):
         # Security: Unique cache key combines username AND IP
         # This prevents both credential stuffing and IP-based bypass attacks
         cache_key = f'login_attempts_{username}_{ip_address}'
-        attempts = cache.get(cache_key, 0)
+        logger.warning(
+            'Account locked: %s from IP %s - too many failed attempts',
+            _safe_log(username), _safe_log(ip_address)
+            )
 
         # Security: Check if account is locked due to too many failed attempts
         if attempts >= MAX_LOGIN_ATTEMPTS:
             logger.warning(
                 f'Account locked: {username} from IP {ip_address} '
                 f'- too many failed attempts'
-            )
+                )
             messages.error(
                 request,
                 'Account locked due to too many failed attempts. '
@@ -110,7 +117,7 @@ def login_view(request):
             cache.delete(cache_key)
             
             # Security: Log successful login for audit trail
-            logger.info(f'Successful login: {username} from IP {ip_address}')
+            logger.info('Successful login: %s from IP %s', _safe_log(username), _safe_log(ip_address))
             
             login(request, user)
             
@@ -129,9 +136,9 @@ def login_view(request):
             
             # Security: Log failed attempt with attempt count for monitoring
             logger.warning(
-                f'Failed login attempt: {username} from IP {ip_address} '
-                f'- {attempts + 1} attempts'
-            )
+                'Failed login attempt: %s from IP %s - %s attempts',
+                _safe_log(username), _safe_log(ip_address), attempts + 1
+                )
             
             if remaining > 0:
                 messages.error(request, f'Invalid credentials. {remaining} attempts remaining.')
