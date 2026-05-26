@@ -146,7 +146,7 @@ jobs:
         with:
           target: 'http://127.0.0.1:8000'
           cmd_options: '-I'
-
+          allow_issue_writing: false
   # ── Stage 5: Pipeline Complete ────────────────────────────────
   pipeline-complete:
     name: Pipeline Complete
